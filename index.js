@@ -13,9 +13,6 @@ const port = 4000;
 app.use(cors());
 app.use(express.json());
 
-// Import the DropDownData module
-const DropDownData = require('./DroppDownData');
-const InnerHeaderDataValues = require('./InnderHeaderData');
 
 
 
