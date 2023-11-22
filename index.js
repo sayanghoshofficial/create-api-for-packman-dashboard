@@ -13,6 +13,8 @@ const { postInventoryData, getInventoryData } = require('./Shema/ShemaForInvento
 const { postMonitoringData, getMonitoringData } = require('./Shema/ShemaForMonitoring');
 const { postUtilizationData, getUtilizationData } = require('./Shema/ShemaForUtilization');
 const { postStorageData, getStorageData } = require('./Shema/ShemaForStorage');
+const { postComplianceData, getComplianceData } = require('./Shema/ShemaForCompliance');
+const { postDynamicElementData, getDynamicElementData } = require('./Shema/ShemaForDynamicElementData')
 const port = 4000;
 
 app.use(cors());
@@ -36,6 +38,10 @@ app.get('/api/utilization', getUtilizationData);
 
 app.get('/api/storage', getStorageData);
 
+app.get('/api/compliance', getComplianceData);
+
+app.get('/api/dynamicelement', getDynamicElementData);
+
 // Use the postDropDownData function for handling POST requests to /api/dropdown
 // app.post('/api/dropdown', postDropDownData);
 
@@ -51,6 +57,10 @@ app.get('/api/storage', getStorageData);
 // app.post('/api/utilization', postUtilizationData);
 
 // app.post('/api/storage', postStorageData);
+
+// app.post('/api/compliance', postComplianceData);
+
+// app.post('/api/dynamicelement', postDynamicElementData);
 
 // Start the server
 app.listen(port, () => {

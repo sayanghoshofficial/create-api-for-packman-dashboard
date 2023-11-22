@@ -2,19 +2,19 @@ const mongoose = require('../MongoDb');
 const DropDownData = require('../Data/DroppDownData');
 const InnerHeaderDataValues = require('../Data/InnderHeaderData')
 
-// Define a Mongoose model for DropDownData
+// Define a Mongoose model for InnerHeader
 const DropDownModel = mongoose.model('Dropdown', {
     id: Number,
     name: String,
 });
 
-// Define a route to handle only POST requests for the /api/dropdown endpoint
+// Define a route to handle only POST requests for the /api/innerheader endpoint
 exports.postDropDownData = async (req, res) => {
     try {
         // Assuming req.body contains the data you want to save
         const newData = DropDownData;
 
-        // Save the new data to MongoDB using the DropDownModel
+        // Save the new data to MongoDB using the InnerHeader
         const result = await DropDownModel.create(newData);
 
         res.json(result);
@@ -26,7 +26,7 @@ exports.postDropDownData = async (req, res) => {
 
 exports.getDropDownData = async (req, res) => {
     try {
-        // Retrieve all documents from the MongoDB collection associated with the DropDownModel
+        // Retrieve all documents from the MongoDB collection associated with the InnerHeader
         const dataFromMongoDB = await DropDownModel.find();
 
         // Send the retrieved data as the response

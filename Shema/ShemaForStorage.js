@@ -2,7 +2,7 @@ const mongoose = require('../MongoDb');
 const dataForStorage = require('../Data/StorageGraphData');
 
 
-// Define a Mongoose model for Cost Data
+// Define a Mongoose model for Storage Data
 const StorageDataModel = mongoose.model('Storage', {
     id: Number,
     name: String,
@@ -11,7 +11,7 @@ const StorageDataModel = mongoose.model('Storage', {
     color: String
 });
 
-// Define a route to handle only POST request for the /api/inventory endpoint
+// Define a route to handle only POST request for the /api/storage endpoint
 exports.postStorageData = async (req, res) => {
     try {
         const newData = dataForStorage;
@@ -27,7 +27,7 @@ exports.postStorageData = async (req, res) => {
 
 exports.getStorageData = async (req, res) => {
     try {
-        // Retrieve all documents from the MongoDB collection associated with the CostDataModel
+        // Retrieve all documents from the MongoDB collection associated with the StorageDataModel
         const dataFromMongoDB = await StorageDataModel.find();
 
         // Send the retrieved data as the response

@@ -2,7 +2,7 @@ const mongoose = require('../MongoDb');
 const dataForInventory = require('../Data/InventoryData');
 
 
-// Define a Mongoose model for Cost Data
+// Define a Mongoose model for Inventory Data
 const InventoryDataModel = mongoose.model('Inventory', {
     id: Number,
     createdAt: String,
@@ -27,7 +27,7 @@ exports.postInventoryData = async (req, res) => {
 
 exports.getInventoryData = async (req, res) => {
     try {
-        // Retrieve all documents from the MongoDB collection associated with the CostDataModel
+        // Retrieve all documents from the MongoDB collection associated with the InventoryDataModel
         const dataFromMongoDB = await InventoryDataModel.find();
 
         // Send the retrieved data as the response

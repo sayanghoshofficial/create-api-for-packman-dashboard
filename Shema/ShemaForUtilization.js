@@ -2,7 +2,7 @@ const mongoose = require('../MongoDb');
 const dataForUtilization = require('../Data/UtilizationData');
 
 
-// Define a Mongoose model for Cost Data
+// Define a Mongoose model for Utilization Data
 const UtilizationDataModel = mongoose.model('Utilization', {
     id: Number,
     name: String,
@@ -12,7 +12,7 @@ const UtilizationDataModel = mongoose.model('Utilization', {
     output:Array,
 });
 
-// Define a route to handle only POST request for the /api/inventory endpoint
+// Define a route to handle only POST request for the /api/utilization endpoint
 exports.postUtilizationData = async (req, res) => {
     try {
         const newData = dataForUtilization;
@@ -28,7 +28,7 @@ exports.postUtilizationData = async (req, res) => {
 
 exports.getUtilizationData = async (req, res) => {
     try {
-        // Retrieve all documents from the MongoDB collection associated with the CostDataModel
+        // Retrieve all documents from the MongoDB collection associated with the UtilizationDataModel
         const dataFromMongoDB = await UtilizationDataModel.find();
 
         // Send the retrieved data as the response

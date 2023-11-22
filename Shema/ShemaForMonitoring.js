@@ -2,13 +2,13 @@ const mongoose = require('../MongoDb');
 const dataForMonitoring = require('../Data/MonitoringData');
 
 
-// Define a Mongoose model for Cost Data
+// Define a Mongoose model for Monitoring Data
 const MonitoringDataModel = mongoose.model('Monitoring', {
     id: Number,
     value:Number
 });
 
-// Define a route to handle only POST request for the /api/inventory endpoint
+// Define a route to handle only POST request for the /api/monitoring endpoint
 exports.postMonitoringData = async (req, res) => {
     try {
         const newData = dataForMonitoring;
@@ -24,7 +24,7 @@ exports.postMonitoringData = async (req, res) => {
 
 exports.getMonitoringData = async (req, res) => {
     try {
-        // Retrieve all documents from the MongoDB collection associated with the CostDataModel
+        // Retrieve all documents from the MongoDB collection associated with the MonitoringDataModel
         const dataFromMongoDB = await MonitoringDataModel.find();
 
         // Send the retrieved data as the response
