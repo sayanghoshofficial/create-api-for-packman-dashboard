@@ -7,7 +7,8 @@ const {
     postInnerHeaderData,
     getDropDownData,
     getInnerHeaderData,
-} = require('./Shema/Shema');
+} = require('./Shema/ShemaForDropdownAndInnerHeader');
+const { postCostData, getCostData } = require('./Shema/ShemaForCost');
 const port = 4000;
 
 app.use(cors());
@@ -21,11 +22,15 @@ app.get('/api/dropdown', getDropDownData);
 
 app.get('/api/innerheaderdata', getInnerHeaderData);
 
-// Use the postDropDownData function for handling POST requests to /api/dropdown
-app.post('/api/dropdown', postDropDownData);
+app.get('/api/cost', getCostData);
 
 // Use the postDropDownData function for handling POST requests to /api/dropdown
-app.post('/api/innerheaderdata', postInnerHeaderData);
+// app.post('/api/dropdown', postDropDownData);
+
+// Use the postDropDownData function for handling POST requests to /api/dropdown
+// app.post('/api/innerheaderdata', postInnerHeaderData);
+
+// app.post('/api/cost', postCostData);
 
 // Start the server
 app.listen(port, () => {
