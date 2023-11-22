@@ -1,23 +1,22 @@
 const mongoose = require('../MongoDb');
-const dataForUtilization = require('../Data/UtilizationData');
+const dataForStorage = require('../Data/StorageGraphData');
 
 
 // Define a Mongoose model for Cost Data
-const UtilizationDataModel = mongoose.model('Utilization', {
+const StorageDataModel = mongoose.model('Storage', {
     id: Number,
     name: String,
-    read: Array,
-    write:Array,
-    input:Array,
-    output:Array,
+    value: String,
+    PBvalue: Number,
+    color: String
 });
 
 // Define a route to handle only POST request for the /api/inventory endpoint
-exports.postUtilizationData = async (req, res) => {
+exports.postStorageData = async (req, res) => {
     try {
-        const newData = dataForUtilization;
+        const newData = dataForStorage;
 
-        const result = await UtilizationDataModel.create(newData);
+        const result = await StorageDataModel.create(newData);
 
         res.json(result);
     } catch (error) {
@@ -26,15 +25,15 @@ exports.postUtilizationData = async (req, res) => {
     }
 }
 
-exports.getUtilizationData = async (req, res) => {
+exports.getStorageData = async (req, res) => {
     try {
         // Retrieve all documents from the MongoDB collection associated with the CostDataModel
-        const dataFromMongoDB = await UtilizationDataModel.find();
+        const dataFromMongoDB = await StorageDataModel.find();
 
         // Send the retrieved data as the response
         res.json(dataFromMongoDB);
     } catch (error) {
-        console.error('Error fetching data from MongoDB for /api/utilization:', error);
+        console.error('Error fetching data from MongoDB for /api/storage:', error);
         res.status(500).send('Internal Server Error');
     }
 }

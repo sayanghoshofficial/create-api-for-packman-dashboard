@@ -33,7 +33,7 @@ exports.getInventoryData = async (req, res) => {
         // Send the retrieved data as the response
         res.json(dataFromMongoDB);
     } catch (error) {
-        console.error('Error fetching data from MongoDB for /api/dropdown:', error);
+        console.error('Error fetching data from MongoDB for /api/inventory:', error);
         res.status(500).send('Internal Server Error');
     }
 }
