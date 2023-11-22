@@ -1,22 +1,22 @@
 const mongoose = require('../MongoDb');
-const dataForCost = require('../Data/CostGraphData');
+const dataForInventory = require('../Data/InventoryData');
 
 
 // Define a Mongoose model for Cost Data
-const CostDataModel = mongoose.model('Cost', {
+const InventoryDataModel = mongoose.model('Inventory', {
     id: Number,
     createdAt: String,
-    'ACTUAL COST': Number,
-    'PROJECTED COST': Number,
-    'ACTUAL RUN RATE': Number
+    'MIN INTANCES': Number,
+    'MID INTANCES': Number,
+    'MAX INTANCES': Number
 });
 
-// Define a route to handle only POST request for the /api/cost endpoint
-exports.postCostData = async (req, res) => {
+// Define a route to handle only POST request for the /api/inventory endpoint
+exports.postInventoryData = async (req, res) => {
     try {
-        const newData = dataForCost;
+        const newData = dataForInventory;
 
-        const result = await ConstDataModel.create(newData);
+        const result = await InventoryDataModel.create(newData);
 
         res.json(result);
     } catch (error) {
@@ -25,10 +25,10 @@ exports.postCostData = async (req, res) => {
     }
 }
 
-exports.getCostData = async (req, res) => {
+exports.getInventoryData = async (req, res) => {
     try {
         // Retrieve all documents from the MongoDB collection associated with the CostDataModel
-        const dataFromMongoDB = await CostDataModel.find();
+        const dataFromMongoDB = await InventoryDataModel.find();
 
         // Send the retrieved data as the response
         res.json(dataFromMongoDB);
