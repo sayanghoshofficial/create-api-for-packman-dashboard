@@ -7,7 +7,7 @@ const {
     postInnerHeaderData,
     getDropDownData,
     getInnerHeaderData,
-} = require('./Shema');
+} = require('./Shema/Shema');
 const port = 4000;
 
 app.use(cors());

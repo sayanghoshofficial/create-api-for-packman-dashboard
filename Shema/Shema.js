@@ -1,6 +1,6 @@
-const mongoose = require('./MongoDb');
-const DropDownData = require('./DroppDownData');
-const InnerHeaderDataValues = require('./InnderHeaderData')
+const mongoose = require('../MongoDb');
+const DropDownData = require('../Data/DroppDownData');
+const InnerHeaderDataValues = require('../Data/InnderHeaderData')
 
 // Define a Mongoose model for DropDownData
 const DropDownModel = mongoose.model('Dropdown', {
