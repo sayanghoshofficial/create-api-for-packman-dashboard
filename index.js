@@ -30,7 +30,7 @@ app.get('/api/cost', getCostData);
 // Use the postDropDownData function for handling POST requests to /api/dropdown
 // app.post('/api/innerheaderdata', postInnerHeaderData);
 
-// app.post('/api/cost', postCostData);
+app.post('/api/cost', postCostData);
 
 // Start the server
 app.listen(port, () => {

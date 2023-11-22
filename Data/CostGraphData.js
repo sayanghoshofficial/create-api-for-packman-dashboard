@@ -1,7 +1,7 @@
 const dataForCost = [
     {
         id: 1,
-        createdAt: "JUN",
+        createdAt: "7th JUN",
         'ACTUAL COST': 690000,
         'PROJECTED COST': 498000,
         'ACTUAL RUN RATE': 800000
