@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
+const path = require('path');
 const mongoose = require('./MongoDb');
 const {
     postDropDownData,
@@ -14,8 +15,11 @@ const { postMonitoringData, getMonitoringData } = require('./Shema/ShemaForMonit
 const { postUtilizationData, getUtilizationData } = require('./Shema/ShemaForUtilization');
 const { postStorageData, getStorageData } = require('./Shema/ShemaForStorage');
 const { postComplianceData, getComplianceData } = require('./Shema/ShemaForCompliance');
-const { postDynamicElementData, getDynamicElementData } = require('./Shema/ShemaForDynamicElementData')
+const { postDynamicElementData, getDynamicElementData } = require('./Shema/ShemaForDynamicElementData');
 const port = 4000;
+
+// Serve static files from the public folder
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(cors());
 app.use(express.json());
